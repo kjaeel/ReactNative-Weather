@@ -128,18 +128,21 @@
     <View   
       style={{
         position: 'absolute',
-        left: 44,
+        left: '10%',
         bottom: 20,
         flex: 1,
         flexDirection: 'row',
         zIndex: 10,
       }}>
 
-        {pageIndex === 3? (<View style={{ flex: 1,      justifyContent: 'center',
-          alignContent: 'center',
-           alignItems: 'center',
-           alignSelf: 'center',left: -44 }}>
+        {pageIndex === 3? (<View style={{ flex: 1,   marginLeft: '24%',   bottom: 20,   }}>
+          <TouchableOpacity onPress={()=> navigation.navigate('CreateNewAcc')}>
             <Image source={started}  />
+            </TouchableOpacity>
+            {/* <TouchableOpacity onPress={() => [setPageIndex(pageIndex - 1)]}>
+                               <Text>ssssssssssss</Text>
+                           </TouchableOpacity> */}
+
             </View> ):
 
       <><View style={{ flex: 4 }}>
@@ -158,10 +161,10 @@
                        </TouchableOpacity>
                    </View><View style={{ flex: 3 }}></View><View style={{ flex: 5, }}>
 
-
+{/* 
                            <TouchableOpacity onPress={() => [setPageIndex(pageIndex - 1)]}>
                                <Text>ssssssssssss</Text>
-                           </TouchableOpacity>
+                           </TouchableOpacity> */}
 
 
                            <TouchableOpacity onPress={() => [setPageIndex(pageIndex + 1)]}>

@@ -7,6 +7,11 @@ import {UserContext} from '../context';
 import {Login} from "../screens/login/login";
 import {TabWrapper} from '../route/tabBarSystem';
 import { Welcome } from '../screens/login/welcome';
+import { CreateNewAcc } from '../screens/registerProcess/createNewAcc';
+import { RegisterStudent } from '../screens/registerProcess/registerStudent';
+import { RegisterLawyer } from '../screens/registerProcess/registerLawyer';
+import { RegisterExplore } from '../screens/registerProcess/registerExplore';
+import { Personalization } from '../screens/registerProcess/personalization';
 
 
 const WelcomeStack = createStackNavigator();
@@ -34,6 +39,11 @@ const MainStack = createStackNavigator();
         <MainStack.Navigator>
         
             <>
+            {/* <MainStack.Screen
+              name="Personalization"
+              component={Personalization}
+              options={{headerShown: false}}
+            /> */}
             <MainStack.Screen
               name="Login"
               component={Login}
@@ -44,6 +54,28 @@ const MainStack = createStackNavigator();
               component={Welcome}
               options={{headerShown: false}}
             />
+
+            <MainStack.Screen
+              name="CreateNewAcc"
+              component={CreateNewAcc}
+              options={{headerShown: false}}
+            />
+             <MainStack.Screen
+              name="RegisterStudent"
+              component={RegisterStudent}
+              options={{headerShown: false}}
+            />
+              <MainStack.Screen
+              name="RegisterLawyer"
+              component={RegisterLawyer}
+              options={{headerShown: false}}
+            />
+                <MainStack.Screen
+              name="RegisterExplore"
+              component={RegisterExplore}
+              options={{headerShown: false}}
+            />
+             
           
             </>
           
