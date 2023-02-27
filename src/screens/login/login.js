@@ -1,0 +1,287 @@
+/* eslint-disable react-native/no-inline-styles */
+/*
+ * Login page that allows user to login using email and password or a social provider
+ */
+import React, {useEffect, useState} from 'react';
+import {
+  SafeAreaView,
+  View,
+  Text,
+
+  StyleSheet,
+
+ ScrollView,
+ Image, TextInput,Pressable
+} from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import {UserContext} from '../../context';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+
+export const Login = ({route, navigation}) => {
+ 
+  const [topMessage, setTopMessage] = useState('');
+  const logo = require('../../assets/spash.png');
+  const {user, setUser} = React.useContext(UserContext);
+  const {submitting, setSubmitting} = useState();
+
+
+  const airLiveUser = {
+    uid: '1234',
+    
+  };
+
+
+
+
+
+  return (
+ <View style={{backgroundColor: '#fff', flex: 1 }}>
+     {/* <Image source={logo} /> */}
+
+     {/* <TouchableOpacity onPress={()=>  setUser(airLiveUser)} style={{backgroundColor: 'black'}}>
+      <Text>
+        login
+      </Text>
+     </TouchableOpacity> */}
+
+<View   style={styles.centered}>
+          <Image
+            source={logo}
+          
+          />
+
+<Text style={styles.logInText}>Log In Now</Text> 
+
+          <Text style={styles.logInText1}>Please fill the details to Login</Text>
+        </View>
+      <Formik
+          initialValues={{email: '', password: ''}}
+          handleChange
+          handleBlur
+          handleSubmit
+          onSubmit={async values => {
+            try {
+              // await loginWithEmail(values.email, values.password);
+              setUser(airLiveUser)
+              
+            } catch (error) {
+              console.error(error);
+              setTopMessage("Email or password invalid")
+            }
+            
+          }}
+          >
+          {props => (
+            <View>
+              <View >
+                <TextInput
+                  style={styles.input}
+                  autoFocus={false}
+                  placeholder=" Email"
+                  autoCapitalize="none"
+                  placeholderTextColor="grey"
+                  onChangeText={props.handleChange('email')}
+                  value={props.values.email}
+                  onBlur={props.handleBlur('email')}
+                />
+                <Text style={styles.errorText}>
+                  {' '}
+                  {props.touched.email && props.errors.email}
+                </Text>
+                {/* <Text >{keyboardStatus}</Text> */}
+                <TextInput
+                  style={styles.input}
+                  placeholder=" Password"
+                  // secureTextEntry={hidePassword ? true : false}
+                  autoCapitalize="none"
+                  placeholderTextColor="grey"
+                  onChangeText={props.handleChange('password')}
+                  value={props.values.password}
+                  onBlur={props.handleBlur('password')}
+                />
+                <TouchableOpacity
+                  onPress={() => sethidePassword(!hidePassword)}>
+                  {/* <Image
+                    source={visibility}
+                    style={{height: 25, width: '8%', left: 290, top: -37}}
+                  /> */}
+                </TouchableOpacity>
+                <Text style={styles.errorText}>
+                  {' '}
+                  {props.touched.password && props.errors.password}
+                </Text>
+
+                <View style={{alignItems: 'flex-end',right: 40}}>
+                  <Pressable
+                    //onPress={() => navigation.navigate('ForgotPassword')}
+                    onPress={() => console.log("pressed")}
+                    >
+                    <Text
+                      style={{
+                        fontSize: 14,
+                        color: '#0065FF',
+                        fontFamily: 'DMSans-Regular',
+                        fontWeight: '500',
+                      }}>
+                      Forgot your password?{' '}
+                    </Text>
+                  </Pressable>
+                </View>
+
+              </View>
+              <View
+                style={{
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}>
+                <TouchableOpacity
+                  // onPress={() => setUser(userObj)}
+                  onPress={props.handleSubmit}
+                  style={{
+                    backgroundColor: '#0065FF',
+                    height: 56,
+                    width: 340,
+                    //alignItems: 'center',
+                    justifyContent: 'center',
+                    borderRadius: 17,
+                    top: 30,
+                  }}>
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'space-evenly',
+                    }}>
+                    <Text
+                      style={{
+                        color: 'white',
+                        fontWeight: 'bold',
+                        fontSize: 18,
+                        fontFamily: 'DMSans-Regular',
+                      }}>
+                      Login
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+         
+              <View
+                style={{
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  bottom: -70,
+                  flexDirection: 'row',
+                }}>
+                <Pressable onPress={() => navigation.navigate('Welcome')}>
+                  <Text
+                    style={{
+                      fontSize: 14,
+                      color: '#0065FF',
+                      fontWeight: '600',
+                      fontFamily: 'DMSans-Regular',
+                    }}>
+                    Don't have an account? {' '} 
+                    <Text>Create account </Text>
+                  </Text>  
+                </Pressable>
+              </View>
+
+              <View />
+            </View>
+          )}
+        </Formik>
+  </View>
+  );
+};
+const styles = StyleSheet.create({
+  centered: {
+ 
+ justifyContent: 'center',
+ alignContent: 'center',
+  alignItems: 'center',
+  marginBottom: 40,
+  marginTop: 50
+  },
+  logInText:{
+fontSize: 25,
+color: '#024092',
+fontWeight: 'bold'
+  },
+  logInText1:{
+    fontSize: 15,
+    color: '#000',
+    // fontWeight: 'bold'
+      },
+  headText: {
+    fontSize: 32,
+    marginBottom: 20,
+    //fontWeight: 'bold',
+  },
+  subheadText: {
+    fontSize: 20,
+    fontWeight: '300',
+    marginBottom: 10,
+  },
+  socialText: {
+    fontSize: 16,
+    fontWeight: '600',
+    marginBottom: 0,
+    // marginLeft: 10,
+    fontFamily: 'DMSans-Regular',
+    color: 'black'
+  },
+  buttonPress: {
+    backgroundColor: 'white',
+    height: 53,
+    width: 340,
+    borderRadius: 32,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 15,
+    flexDirection: 'row',
+    borderColor: '#E4E8E9',
+    borderWidth: 1,
+  },
+  input: {
+    // width: '100%',
+    height: 50,
+    borderColor: 'white',
+    backgroundColor: '#F7FBFE',
+    borderWidth: 0.5,
+    borderRadius: 5,
+    fontSize: 18,
+    borderColor: 'black',
+    //fontWeight: '500',
+   marginTop: 20,
+   marginLeft: 20,
+   marginRight: 20,
+    paddingBottom: 1,
+    paddingLeft: 15,
+  },
+
+  secondaryLogin: {
+    backgroundColor: 'blue',
+    width: 100,
+    height: 30,
+    marginLeft: 5,
+    marginTop: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  inputHeader: {
+    fontSize: 20,
+    marginBottom: 10,
+    marginTop: 10,
+    fontWeight: '500',
+    fontFamily: 'DMSans-Regular',
+  },
+  login: {
+    fontSize: 22,
+    paddingLeft: 5,
+  },
+  errorText: {
+    color: 'red',
+    fontWeight: 'normal',
+    fontFamily: 'DMSans-Regular',
+  },
+ 
+});
