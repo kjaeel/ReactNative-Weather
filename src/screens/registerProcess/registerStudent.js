@@ -17,6 +17,7 @@ import {
   } from "react-native";
   import React, { useState, useCallback, useEffect, useRef } from "react";
   import Avatar, { IconTypes, Sizes } from "rn-avatar";
+import { heightPercentageToDP } from "react-native-responsive-screen";
   
   const { width, height } = Dimensions.get("window");
   
@@ -55,6 +56,7 @@ import {
   
     return (
       <ScrollView
+      keyboardShouldPersistTaps='always'
         style={{
           flex: 1,
           backgroundColor: "#F7FBFE",
@@ -64,7 +66,7 @@ import {
       >
         <ImageBackground
           source={student}
-          resizeMode="cover"
+          resizeMode="stretch"
           style={{
             height: height,
             position: "absolute",
@@ -99,16 +101,17 @@ import {
           </Text>
         </View>
   
-        <View>
+    
           <TextInput
             style={styles.input}
             onChangeText={setFistName}
             value={firstName}
             placeholder={"Your Name Here"}
             placeholderTextColor={"#767E8B"}
+            autoFocus={true}
             onSubmitEditing={() => ref_input2.current.focus()}
           />
-        </View>
+     
 
 
         <View style={styles.formName}>
@@ -132,6 +135,7 @@ import {
             placeholder={"abcd@gmail.com"}
             placeholderTextColor={"#767E8B"}
             onSubmitEditing={() => ref_input3.current.focus()}
+           
           />
         </View>
 
@@ -341,7 +345,7 @@ import {
   
       alignSelf: "center",
       //   position: 'relative',
-      marginTop: 200,
+      marginTop: heightPercentageToDP('30'),
     },
     centeredView1: {
       // flex: 1,
@@ -379,7 +383,7 @@ import {
       fontSize: 20,
       fontFamily: "Roboto-Regular",
       textAlign: "center",
-      marginTop: 30,
+      // marginTop: 30,
     },
     goback: {
       color: "#024092",

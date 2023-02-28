@@ -3,11 +3,11 @@
  */
 import React from 'react';
 import {Image,Platform,View} from 'react-native';
-// import {ChatNavigationStack} from './screens/chatNavigationStack';
+import {ProfileStack} from '../navStacks/ProfileStack';
 import {HomeNavigationStack} from '../navStacks/HomeNavigationStack';
 import {MoreNavigationStack} from '../navStacks/MoreNavigationStack';
-// import {FlightNavigationStack} from './screens/flightNavigationStack';
-// import {GroupNavigationStack} from './screens/groupNavigationStack';
+import {NewsNavigationStack} from '../navStacks/NewsNavigationStack';
+import {NotificationStack} from '../navStacks/NotificationStack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 // import View from 'react-native-gesture-handler/lib/typescript/GestureHandlerRootView';
 // import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -33,37 +33,37 @@ const tabBarOptions = ({route}) => ({
   tabBarIcon: ({focused, color, size}) => {
     if (route.name === 'HomeStack') {
       return focused ? (
-        <Image source={require('../assets/homeIcon/homeIconActive.png')} />
+        <Image source={require('../assets/botnav/HomeA.png')} />
       ) : (
-        <Image source={require('../assets/homeIcon/homeIcon.png')} />
+        <Image source={require('../assets/botnav/Home.png')} />
       );
     }
-     else if (route.name === 'ChatStack') {
+     else if (route.name === 'Notification') {
       return focused ? (
-        <Image source={require('../assets/chatIcon/chatIconActive.png')} />
+        <Image source={require('../assets/botnav/NotificationA.png')} />
       ) : (
-        <Image source={require('../assets/chatIcon/chatIcon.png')} />
+        <Image source={require('../assets/botnav/Notification.png')} />
       );
-    } else if (route.name === 'MoreStack') {
+    } else if (route.name === 'NewsStack') {
       return focused ? (
-        <Image source={require('../assets/moreIcon/moreIconActive.png')} />
+        <Image source={require('../assets/botnav/BookmarkA.png')} />
       ) : (
-        <Image source={require('../assets/moreIcon/moreIcon.png')} />
+        <Image source={require('../assets/botnav/Bookmark.png')} />
       );
     } 
     else if (route.name === 'FlightStack') {
       return focused ? (
-        <Image source={require('../assets/joinIcon/joinIconActive.png')} />
+        <Image source={require('../assets/botnav/CategoryA.png')} />
   
       ) : (
-        <Image source={require('../assets/joinIcon/joinIconActive.png')} />
+        <Image source={require('../assets/botnav/Category.png')} />
       );
     } 
-    else if (route.name === 'GroupStack') {
+    else if (route.name === 'Profile') {
       return focused ? (
-        <Image source={require('../assets/joinIcon/joinIconActive.png')} />
+        <Image source={require('../assets/botnav/ProfileA.png')} />
       ) : (
-        <Image source={require('../assets/joinIcon/joinIcon.png')} />
+        <Image source={require('../assets/botnav/Profile.png')} />
       );
     }
     return <></>;
@@ -76,7 +76,7 @@ const tabBarOptions = ({route}) => ({
 export const TabWrapper = () => {
   return (
     <AuthenticatedStack.Navigator
-      // initialRouteName="GroupStack"
+      // initialRouteName="NewsStack"
 
       screenOptions={tabBarOptions}
       
@@ -98,20 +98,21 @@ export const TabWrapper = () => {
       />
   
       <AuthenticatedStack.Screen
-        name="GroupStack"
+        name="FlightStack"
         component={MoreNavigationStack}
       />
+   
         <AuthenticatedStack.Screen
-        name="FlightStack"
-        component={HomeNavigationStack}
+        name="NewsStack"
+        component={NewsNavigationStack}
       />
       <AuthenticatedStack.Screen
-        name="ChatStack"
-        component={HomeNavigationStack}
+        name="Notification"
+        component={NotificationStack}
       />
       <AuthenticatedStack.Screen
-        name="MoreStack"
-        component={HomeNavigationStack}
+        name="Profile"
+        component={ProfileStack}
       />
     </AuthenticatedStack.Navigator>
   );

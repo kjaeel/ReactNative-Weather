@@ -47,10 +47,10 @@
 
   > 
       <ImageBackground
-       //  resizeMode="contain"
+        resizeMode="contain"
         style={{
-          width: 382,
-          height: 693,
+          width: widthPercentageToDP('100'),
+          height: heightPercentageToDP('70'),
           justifyContent: 'center',
           alignContent: 'center',
            alignItems: 'center',
@@ -75,8 +75,8 @@
       <ImageBackground
        //  resizeMode="contain"
         style={{
-          width: 341,
-          height: 661,
+          width: widthPercentageToDP('60'),
+          height: heightPercentageToDP('70'),
           justifyContent: 'center',
           alignContent: 'center',
            alignItems: 'center',
@@ -101,8 +101,8 @@
       <ImageBackground
        //  resizeMode="contain"
         style={{
-          width: 382,
-          height: 693,
+          width: widthPercentageToDP('60'),
+          height: heightPercentageToDP('70'),
           justifyContent: 'center',
           alignContent: 'center',
            alignItems: 'center',
@@ -128,14 +128,14 @@
     <View   
       style={{
         position: 'absolute',
-        left: '10%',
+        left: heightPercentageToDP('5'),
         bottom: 20,
         flex: 1,
         flexDirection: 'row',
         zIndex: 10,
       }}>
 
-        {pageIndex === 3? (<View style={{ flex: 1,   marginLeft: '24%',   bottom: 20,   }}>
+        {pageIndex === 3? (<View style={{ flex: 1,   marginLeft: heightPercentageToDP('11.5'),   bottom: 20,   }}>
           <TouchableOpacity onPress={()=> navigation.navigate('CreateNewAcc')}>
             <Image source={started}  />
             </TouchableOpacity>

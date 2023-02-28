@@ -16,6 +16,7 @@ import {
     Pressable,
   } from "react-native";
   import React, { useState, useCallback, useEffect, useRef } from "react";
+import { heightPercentageToDP } from "react-native-responsive-screen";
   
   const { width, height } = Dimensions.get("window");
   
@@ -34,14 +35,15 @@ import {
       <ScrollView
         style={{
           flex: 1,
-          backgroundColor: "#F7FBFE",
+          backgroundColor: "#fff",
           height: windowHeight,
           width: windowWidth,
+         
         }}
       >
         <ImageBackground
           source={registerBg}
-          resizeMode="cover"
+          resizeMode="stretch"
           style={{
             height: height,
             position: "absolute",
@@ -55,31 +57,7 @@ import {
           }}
         />
   
-        {/*   
-          <View
-            style={{
-              backgroundColor: '#FFFFFF',
-              width: '100%',
-              borderRadius: 40,
-              height: '75%',
-              // marginBottom: -20,
-              marginTop: '35%',
-              alignItems: 'center',
-            }}>
-            <View style={{ marginTop: -40 }}>
-              <TouchableOpacity
-                onPress={() => (navigation.navigate('Profile', {
-                  userId: user?.uid,
-                }))}>
-                <Avatar
-                  rounded
-                  size={100}
-                  source={{ uri: userData?.photoUrl }}
-                  containerStyle={{ margin: 10, backgroundColor: '#000' }}
-                />
-              </TouchableOpacity>
-            </View>
-     */}
+      
   
         <View style={styles.centeredView}>
           <View>
@@ -108,7 +86,7 @@ import {
           </TouchableOpacity>
         </View>
 
-
+      
         <View style={styles.centeredView2}>
           <TouchableOpacity>
           <Image source={next} style={{ width: 117, height: 47 }} />
@@ -136,7 +114,7 @@ import {
   
       alignSelf: "center",
       //   position: 'relative',
-      marginTop: 200,
+      marginTop: heightPercentageToDP('15'),
     },
     centeredView1: {
       // flex: 1,
@@ -167,6 +145,7 @@ import {
         alignSelf: "center",
         //   position: 'relative',
         marginTop: 20,
+        marginBottom: 50
       },
     createText: {
       color: "#024092",

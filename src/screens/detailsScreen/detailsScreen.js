@@ -217,20 +217,24 @@ zIndex: 1,
   desc: {
     marginLeft: 32,
     // marginTop: 12,
+       marginRight: 32,
     fontSize: 20,
     fontFamily: 'Roboto-Bold',
     color: '#3A434F'
   },
   desc1: {
     marginLeft: 32,
+    marginRight: 5,
     // marginTop: 12,
+    
     fontSize: 28,
     fontFamily: 'Roboto-Bold',
     color: '#000',
-    width: 390
+    // width: 390
   },
   descText: {
     marginLeft: 32,
+    marginRight: 10,
     // marginTop: 12,
     fontSize: 16,
     fontFamily: 'Roboto-Regular',

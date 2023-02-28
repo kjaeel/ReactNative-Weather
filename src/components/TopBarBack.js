@@ -18,13 +18,14 @@ import {
   ActivityIndicator,
   ViewStyle,
 } from "react-native";
+import { widthPercentageToDP } from "react-native-responsive-screen";
 
 
 
 export const TopBarBack = (props) => {
  const [flag, setFlag] = useState("");
 
- const logo = require('../assets/spash.png');
+ const logo = require('../assets/splash2.png');
  const search = require('../assets/Vector.png');
  const back = require('../assets/back.png');
   return (
@@ -52,11 +53,11 @@ export const TopBarBack = (props) => {
         style={{marginLeft: 0, marginTop: 25, marginRight: 0, backgroundColor: 'white', 
  }}
       >
-        <Image source={back} />
+        <Image source={back}  />
       </TouchableOpacity>
     </View>
     <View style={{ flex: 8 }}>
-    <Image source={logo} style={{width: 200, height: 60, marginLeft: -30, marginTop: 2}} />
+    <Image source={logo} style={{width: 160, height: 60, marginLeft: -5, marginTop: 8}} />
     </View>
     <View style={{ flex: 1 }}>
       <TouchableOpacity

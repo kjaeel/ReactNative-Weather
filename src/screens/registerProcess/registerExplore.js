@@ -17,6 +17,7 @@ import {
   } from "react-native";
   import React, { useState, useCallback, useEffect, useRef } from "react";
   import Avatar, { IconTypes, Sizes } from "rn-avatar";
+import { heightPercentageToDP } from "react-native-responsive-screen";
   
   const { width, height } = Dimensions.get("window");
   
@@ -109,6 +110,7 @@ import {
             placeholder={"Your Name Here"}
             placeholderTextColor={"#767E8B"}
             onSubmitEditing={() => ref_input2.current.focus()}
+            autoFocus={true}
           />
         </View>
 
@@ -277,7 +279,7 @@ import {
   
       alignSelf: "center",
       //   position: 'relative',
-      marginTop: 220,
+      marginTop: heightPercentageToDP('20'),
     },
     centeredView1: {
       // flex: 1,
@@ -315,7 +317,7 @@ import {
       fontSize: 20,
       fontFamily: "Roboto-Regular",
       textAlign: "center",
-      marginTop: 30,
+      // marginTop: 30,
     },
     goback: {
       color: "#024092",

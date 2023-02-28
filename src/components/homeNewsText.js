@@ -38,7 +38,7 @@ export const HomeNewsText = (props) => {
 
                     </View>
                     <View style={{flex:3}}>
-                    <Image source={logo} style={{ marginTop: 20, marginLeft: 20}}/>
+                    <Image source={logo} style={{ marginTop: 20, marginLeft: 2}}/>
                     </View>
                 </View>
             </View>

@@ -35,7 +35,7 @@ export const Login = ({route, navigation}) => {
 
 
   return (
- <View style={{backgroundColor: '#fff', flex: 1 }}>
+ <ScrollView style={{backgroundColor: '#fff',paddingBottom: 100 }}>
      {/* <Image source={logo} /> */}
 
      {/* <TouchableOpacity onPress={()=>  setUser(airLiveUser)} style={{backgroundColor: 'black'}}>
@@ -120,7 +120,7 @@ export const Login = ({route, navigation}) => {
                       style={{
                         fontSize: 14,
                         color: '#0065FF',
-                        fontFamily: 'DMSans-Regular',
+                        fontFamily: 'Roboto-Regular',
                         fontWeight: '500',
                       }}>
                       Forgot your password?{' '}
@@ -145,6 +145,7 @@ export const Login = ({route, navigation}) => {
                     justifyContent: 'center',
                     borderRadius: 17,
                     top: 30,
+                    
                   }}>
                   <View
                     style={{
@@ -156,7 +157,7 @@ export const Login = ({route, navigation}) => {
                         color: 'white',
                         fontWeight: 'bold',
                         fontSize: 18,
-                        fontFamily: 'DMSans-Regular',
+                        fontFamily: 'Roboto',
                       }}>
                       Login
                     </Text>
@@ -168,16 +169,18 @@ export const Login = ({route, navigation}) => {
                 style={{
                   justifyContent: 'center',
                   alignItems: 'center',
-                  bottom: -70,
+                  bottom: -50,
+                  marginBottom: 150,
                   flexDirection: 'row',
+
                 }}>
-                <Pressable onPress={() => navigation.navigate('Welcome')}>
+                <Pressable onPress={() => navigation.navigate('Welcome')} style={{padding: 10,}}>
                   <Text
                     style={{
                       fontSize: 14,
                       color: '#0065FF',
                       fontWeight: '600',
-                      fontFamily: 'DMSans-Regular',
+                      fontFamily: 'Roboto-Regular',
                     }}>
                     Don't have an account? {' '} 
                     <Text>Create account </Text>
@@ -189,7 +192,7 @@ export const Login = ({route, navigation}) => {
             </View>
           )}
         </Formik>
-  </View>
+  </ScrollView>
   );
 };
 const styles = StyleSheet.create({
@@ -226,7 +229,7 @@ fontWeight: 'bold'
     fontWeight: '600',
     marginBottom: 0,
     // marginLeft: 10,
-    fontFamily: 'DMSans-Regular',
+    fontFamily: 'Roboto-Regular',
     color: 'black'
   },
   buttonPress: {
@@ -272,7 +275,7 @@ fontWeight: 'bold'
     marginBottom: 10,
     marginTop: 10,
     fontWeight: '500',
-    fontFamily: 'DMSans-Regular',
+    fontFamily: 'Roboto-Regular',
   },
   login: {
     fontSize: 22,
@@ -281,7 +284,7 @@ fontWeight: 'bold'
   errorText: {
     color: 'red',
     fontWeight: 'normal',
-    fontFamily: 'DMSans-Regular',
+    fontFamily: 'Roboto-Regular',
   },
  
 });

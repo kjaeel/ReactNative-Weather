@@ -14,6 +14,7 @@ import {
  Image, 
 } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
 import HomeNewsCard from '../../components/homeNewsCard';
 import { HomeNewsText } from '../../components/homeNewsText';
 import  {TopBar} from '../../components/TopBar'
@@ -143,7 +144,7 @@ export const Home = ({navigation}) => {
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
           
-                style={{marginTop: 10, height: 400}}
+                style={{marginTop: -10, height: widthPercentageToDP('80')}}
                >
                 { (
                   array.array.map(info => {
@@ -168,7 +169,7 @@ export const Home = ({navigation}) => {
 
                 <ScrollView 
                 style={{marginBottom: 10, }}
-                contentContainerStyle={{ flexGrow: 1, marginTop: 20 }}
+                contentContainerStyle={{ flexGrow: 1, marginTop: heightPercentageToDP('2') }}
                 horizontal={false}
                 >
                 { (
@@ -210,7 +211,7 @@ zIndex: 1,
     // margin: 24,
     // marginBottom: 90
     // backgroundColor: 'red',
-    height: 60
+    height: 100
   },
   scrollText: {
     margin: 10,
