@@ -16,6 +16,7 @@ import {
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import {UserContext} from '../../context';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { loginWithEmail } from '../../services/auth';
 
 export const Login = ({route, navigation}) => {
  
@@ -30,6 +31,41 @@ export const Login = ({route, navigation}) => {
     
   };
 
+  const logInWithData = async () => {
+  //  let data = loginWithEmail()
+
+   await loginWithEmail().then(
+      
+    // await getFlights('LAS', 'FLL', '2022-01-18', adultCount, childCount).then(
+    data => {
+
+
+    
+
+    //  console.log("DATA - - - - - - - -",data)
+
+     if (data.Errors ) {
+
+      // finalData.push("Error");
+      console.log("here in error")
+       
+     } else {
+      setUser(data)
+   console.log(JSON.stringify(data, null,2))
+      // console.log("here")
+     }
+
+
+
+
+
+     
+    },
+  );
+
+  }
+
+  
 
 
 
@@ -54,25 +90,7 @@ export const Login = ({route, navigation}) => {
 
           <Text style={styles.logInText1}>Please fill the details to Login</Text>
         </View>
-      <Formik
-          initialValues={{email: '', password: ''}}
-          handleChange
-          handleBlur
-          handleSubmit
-          onSubmit={async values => {
-            try {
-              // await loginWithEmail(values.email, values.password);
-              setUser(airLiveUser)
-              
-            } catch (error) {
-              console.error(error);
-              setTopMessage("Email or password invalid")
-            }
-            
-          }}
-          >
-          {props => (
-            <View>
+        <View>
               <View >
                 <TextInput
                   style={styles.input}
@@ -80,13 +98,13 @@ export const Login = ({route, navigation}) => {
                   placeholder=" Email"
                   autoCapitalize="none"
                   placeholderTextColor="grey"
-                  onChangeText={props.handleChange('email')}
-                  value={props.values.email}
-                  onBlur={props.handleBlur('email')}
+                  // onChangeText={props.handleChange('email')}
+                  // value={props.values.email}
+                  // onBlur={props.handleBlur('email')}
                 />
                 <Text style={styles.errorText}>
                   {' '}
-                  {props.touched.email && props.errors.email}
+                  {/* {props.touched.email && props.errors.email} */}
                 </Text>
                 {/* <Text >{keyboardStatus}</Text> */}
                 <TextInput
@@ -95,9 +113,9 @@ export const Login = ({route, navigation}) => {
                   // secureTextEntry={hidePassword ? true : false}
                   autoCapitalize="none"
                   placeholderTextColor="grey"
-                  onChangeText={props.handleChange('password')}
-                  value={props.values.password}
-                  onBlur={props.handleBlur('password')}
+                  // onChangeText={props.handleChange('password')}
+                  // value={props.values.password}
+                  // onBlur={props.handleBlur('password')}
                 />
                 <TouchableOpacity
                   onPress={() => sethidePassword(!hidePassword)}>
@@ -108,7 +126,7 @@ export const Login = ({route, navigation}) => {
                 </TouchableOpacity>
                 <Text style={styles.errorText}>
                   {' '}
-                  {props.touched.password && props.errors.password}
+                  {/* {props.touched.password && props.errors.password} */}
                 </Text>
 
                 <View style={{alignItems: 'flex-end',right: 40}}>
@@ -135,8 +153,11 @@ export const Login = ({route, navigation}) => {
                   alignItems: 'center',
                 }}>
                 <TouchableOpacity
-                  // onPress={() => setUser(userObj)}
-                  onPress={props.handleSubmit}
+                  onPress={() => {
+                    // setUser(airLiveUser)
+                    logInWithData()
+                  }}
+                
                   style={{
                     backgroundColor: '#0065FF',
                     height: 56,
@@ -190,8 +211,6 @@ export const Login = ({route, navigation}) => {
 
               <View />
             </View>
-          )}
-        </Formik>
   </ScrollView>
   );
 };

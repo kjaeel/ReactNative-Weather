@@ -29,7 +29,7 @@ export default function HomeNewsCard(props, flag) {
         backgroundColor: '#fff',
         // paddingRight: 12,
         paddingTop: 24,
-        marginLeft: 24
+        marginLeft: 24,
         
       }}>
         

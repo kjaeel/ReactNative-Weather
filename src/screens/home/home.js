@@ -10,7 +10,7 @@ import {
 
   StyleSheet,
 
- ScrollView,
+ ScrollView,Dimensions,
  Image, 
 } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -18,12 +18,14 @@ import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsi
 import HomeNewsCard from '../../components/homeNewsCard';
 import { HomeNewsText } from '../../components/homeNewsText';
 import  {TopBar} from '../../components/TopBar'
-
+const {width, height} = Dimensions.get('window');
 
 export const Home = ({navigation}) => {
  
   const [topMessage, setTopMessage] = useState('');
   const logo = require('../../assets/spash.png');
+
+  const [deviceWidthCheck, setDeviceWidthCheck] = useState(400);
 
   let array = {
     array: [
@@ -105,6 +107,21 @@ export const Home = ({navigation}) => {
     ],
   };
 
+
+  
+  useEffect(() => {
+    // fetchUserBalances();
+
+    console.log('DEVICE WIDTH', width);
+    if (width === 360) {
+      // console.log('XR');
+      setDeviceWidthCheck(600);
+    } else {
+      // console.log('12');
+      setDeviceWidthCheck(350);
+    }
+  }, []);
+
   return (
    
  <View style={styles.centered}>
@@ -144,7 +161,7 @@ export const Home = ({navigation}) => {
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
           
-                style={{marginTop: -10, height: widthPercentageToDP('80')}}
+                style={{marginTop: -10, height: deviceWidthCheck }}
                >
                 { (
                   array.array.map(info => {
@@ -169,7 +186,7 @@ export const Home = ({navigation}) => {
 
                 <ScrollView 
                 style={{marginBottom: 10, }}
-                contentContainerStyle={{ flexGrow: 1, marginTop: heightPercentageToDP('2') }}
+                contentContainerStyle={{ flexGrow: 1,  }}
                 horizontal={false}
                 >
                 { (

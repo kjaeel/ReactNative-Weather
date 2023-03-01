@@ -32,38 +32,42 @@ const tabBarOptions = ({route}) => ({
 
   tabBarIcon: ({focused, color, size}) => {
     if (route.name === 'HomeStack') {
+      
       return focused ? (
-        <Image source={require('../assets/botnav/HomeA.png')} />
+        <Image source={require('../assets/botnav/trash/Home.png')} style={{width: 30, height: 30}}  />
       ) : (
-        <Image source={require('../assets/botnav/Home.png')} />
+   
+        <Image source={require('../assets/botnav/trash/HomeA.png')} style={{width: 30, height: 30}} />
       );
+        
+      
     }
      else if (route.name === 'Notification') {
       return focused ? (
-        <Image source={require('../assets/botnav/NotificationA.png')} />
+        <Image source={require('../assets/botnav/trash/Notification.png')} style={{width: 24, height: 30}} />
       ) : (
-        <Image source={require('../assets/botnav/Notification.png')} />
+        <Image source={require('../assets/botnav/trash/NotificationA.png')} style={{width: 24, height: 30}} />
       );
     } else if (route.name === 'NewsStack') {
       return focused ? (
-        <Image source={require('../assets/botnav/BookmarkA.png')} />
+        <Image source={require('../assets/botnav/trash/Bookmark.png')} style={{width: 24, height: 30}} />
       ) : (
-        <Image source={require('../assets/botnav/Bookmark.png')} />
+        <Image source={require('../assets/botnav/trash/BookmarkA.png')} style={{width: 24, height: 30}}  />
       );
     } 
     else if (route.name === 'FlightStack') {
       return focused ? (
-        <Image source={require('../assets/botnav/CategoryA.png')} />
+        <Image source={require('../assets/botnav/trash/Category.png')} style={{width: 34, height: 34}} />
   
       ) : (
-        <Image source={require('../assets/botnav/Category.png')} />
+        <Image source={require('../assets/botnav/trash/CategoryA.png')} style={{width: 34, height: 34}} />
       );
     } 
     else if (route.name === 'Profile') {
       return focused ? (
-        <Image source={require('../assets/botnav/ProfileA.png')} />
+        <Image source={require('../assets/botnav/trash/Profile.png')} style={{width: 24, height: 30}} />
       ) : (
-        <Image source={require('../assets/botnav/Profile.png')} />
+        <Image source={require('../assets/botnav/trash/ProfileA.png')} style={{width: 24, height: 30}} />
       );
     }
     return <></>;
