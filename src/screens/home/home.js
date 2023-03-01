@@ -19,12 +19,12 @@ import HomeNewsCard from '../../components/homeNewsCard';
 import { HomeNewsText } from '../../components/homeNewsText';
 import  {TopBar} from '../../components/TopBar'
 const {width, height} = Dimensions.get('window');
-
+import {UserContext} from '../../context';
 export const Home = ({navigation}) => {
  
   const [topMessage, setTopMessage] = useState('');
   const logo = require('../../assets/spash.png');
-
+  const {user, setUser} = React.useContext(UserContext);
   const [deviceWidthCheck, setDeviceWidthCheck] = useState(400);
 
   let array = {
@@ -120,6 +120,8 @@ export const Home = ({navigation}) => {
       // console.log('12');
       setDeviceWidthCheck(350);
     }
+
+    console.log(user)
   }, []);
 
   return (

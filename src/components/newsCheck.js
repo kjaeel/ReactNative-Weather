@@ -52,7 +52,7 @@ export const NewsButton = ({
         >
         <View
           style={{
-            flexDirection: 'row',
+            // flexDirection: 'row',
             justifyContent: 'center',
             
           }}>
@@ -71,7 +71,7 @@ export const NewsButton = ({
             {title}
           </Text>
 
-      <View style={{position: 'absolute', right: -2}}>
+      <View style={{position: 'absolute', right: 1}}>
           {selected ? (
        <Icon name="heart" size={17} color={'#FF3939'} style={{marginLeft: 0, marginTop: 0}}/>
      
@@ -82,10 +82,6 @@ export const NewsButton = ({
           )}
           </View>
 
-
-          {/* {selected ? (
-            <Image style={{marginRight: 13, marginTop: 5}} source={whiteTick} />
-          ) : null} */}
         </View>
       
            <Image
@@ -93,6 +89,8 @@ export const NewsButton = ({
       
            source={lightImage} 
          />
+
+{disabled ===true ?<View style={styles.overlay}/>: <View/> }
 
         
       </TouchableOpacity>
