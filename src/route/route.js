@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import {UserContext} from '../context';
 import {Login} from "../screens/login/login";
+import {AirLogin} from "../screens/login/AirLogin";
 import {TabWrapper} from '../route/tabBarSystem';
 import { Welcome } from '../screens/login/welcome';
 import { CreateNewAcc } from '../screens/registerProcess/createNewAcc';
@@ -47,6 +48,12 @@ const MainStack = createStackNavigator();
             <MainStack.Screen
               name="Login"
               component={Login}
+              options={{headerShown: false}}
+            />
+
+            <MainStack.Screen
+              name="AirLogin"
+              component={AirLogin}
               options={{headerShown: false}}
             />
               <MainStack.Screen

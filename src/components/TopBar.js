@@ -24,7 +24,7 @@ import {
 export const TopBar = (props) => {
  const [flag, setFlag] = useState("");
 
- const logo = require('../assets/spash.png');
+ const logo = require('../assets/logo.png');
  const search = require('../assets/Vector.png');
   return (
 
@@ -32,7 +32,7 @@ export const TopBar = (props) => {
            
                 <View style={{flexDirection:"row"}}>
                     <View style={{flex:10}}>
-                    <Image source={logo} style={{width: 200, height: 60}} />
+                    <Image source={logo} style={{ marginLeft: 14, marginTop: 10}} />
 
                     </View>
                     <View style={{flex:2}}>

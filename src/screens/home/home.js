@@ -157,6 +157,28 @@ export const Home = ({navigation}) => {
                  
 
      </ScrollView>
+     <View style={{flexDirection: 'row', marginBottom: 10}}>
+      <Text style={styles.staticText}>
+      SUPREME COURT
+      </Text>
+
+     
+      <TouchableOpacity style={{marginLeft: 13, backgroundColor: '#2D4191', borderRadius: 20, }}>
+        <Text style={{marginLeft:10,marginRight: 10,  color: 'white', fontFamily: 'Roboto-Regilar', fontSize: 14}}>e-Filing</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={{marginLeft: 13, backgroundColor: '#2D4191', borderRadius: 20, }}>
+        <Text style={{marginLeft:10,marginRight: 10,  color: 'white', fontFamily: 'Roboto-Regilar', fontSize: 10}}>Legal Database</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={{marginLeft: 13, backgroundColor: '#2D4191', borderRadius: 20, }}>
+        <Text style={{marginLeft:10,marginRight: 10,  color: 'white', fontFamily: 'Roboto-Regilar', fontSize: 14}}>Course</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={{marginLeft: 13, backgroundColor: '#2D4191', borderRadius: 20, }}>
+        <Text style={{marginLeft:10,marginRight: 10,  color: 'white', fontFamily: 'Roboto-Regilar', fontSize: 14}}>Know The Law</Text>
+      </TouchableOpacity>
+     </View>
 
 
               <ScrollView
@@ -230,12 +252,19 @@ zIndex: 1,
     // margin: 24,
     // marginBottom: 90
     // backgroundColor: 'red',
-    height: 100
+    height: 60
   },
   scrollText: {
     margin: 10,
     fontFamily: 'Roboto-Bold',
     fontSize: 16
+  },
+  staticText : {
+    marginLeft: 25,
+    marginBottom: 10,
+    fontFamily: 'Roboto-Bold',
+    fontSize: 14,
+    // marginTop: 10
   }
  
 });
